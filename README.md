@@ -6,4 +6,4 @@ In this exercise the task is to create a terminal rock-paper-scissors game in ja
 
 
 #### To-do
-- [ ] create the game
+- [x] create the game
