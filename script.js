@@ -80,22 +80,29 @@ function playRound(getHumanChoice, getComputerChoice) {
   }
 }
 
-// Function which allows the player to play a game of 5 rounds.
-function playGame() {
-  if (humanScore > computerScore) {
-    alert("You are the winner!");
-  } else if (humanScore < computerScore) {
-    alert("You are the loser!");
+function checkWinner() {
+  if (humanScore >= 5 || computerScore >= 5) {
+    if (humanScore > computerScore) {
+      return "You are the winner!";
+    } else if (humanScore < computerScore) {
+      return "You are the loser!";
+    } else {
+      return "No body wins!";
+    }
   } else {
-    alert("No body wins!");
+    return "";
   }
 }
 
 const buttons = document.querySelectorAll("button");
+const result = document.querySelector(".results");
+const endResults = document.querySelector(".endResults");
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    const humanSelection = getHumanChoice();
+    const humanSelection = button.innerText;
     const computerSelection = getComputerChoice();
-    alert(playRound(humanSelection, computerSelection));
+    result.textContent = playRound(humanSelection, computerSelection);
+    endResults.textContent = checkWinner();
   });
 });
