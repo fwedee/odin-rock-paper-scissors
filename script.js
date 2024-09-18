@@ -36,10 +36,9 @@ var computerScore = 0;
 
 // Function which evaluates which player won a round.
 function playRound(getHumanChoice, getComputerChoice) {
-    
-    let lose = `You lose! ${getHumanChoice} gets beaten by ${getComputerChoice}.`;
-    let tie = `Nobody won. ${getHumanChoice} ties with ${getComputerChoice}.`;
-    let win = `You win! ${getHumanChoice} beats ${getComputerChoice}.`;
+  let lose = `You lose! ${getHumanChoice} gets beaten by ${getComputerChoice}.`;
+  let tie = `Nobody won. ${getHumanChoice} ties with ${getComputerChoice}.`;
+  let win = `You win! ${getHumanChoice} beats ${getComputerChoice}.`;
 
   getComputerChoice = getComputerChoice.toLowerCase();
   getHumanChoice = getHumanChoice.toLowerCase();
@@ -54,7 +53,7 @@ function playRound(getHumanChoice, getComputerChoice) {
           ++humanScore;
           return win;
         case "rock":
-          return tie
+          return tie;
       }
     case "paper":
       switch (getComputerChoice) {
@@ -82,20 +81,20 @@ function playRound(getHumanChoice, getComputerChoice) {
 }
 
 // Function which allows the player to play a game of 5 rounds.
-function playGame(){
-  for (let i = 0; i < 5; i++){  
+function playGame() {
+  for (let i = 0; i < 5; i++) {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
-    alert(playRound(humanSelection, computerSelection))
+    alert(playRound(humanSelection, computerSelection));
   }
 
   if (humanScore > computerScore) {
-    alert("You are the winner!")
-  }else if (humanScore < computerScore) {
-    alert("You are the loser!")
-  }else {
-    alert("No body wins!")
+    alert("You are the winner!");
+  } else if (humanScore < computerScore) {
+    alert("You are the loser!");
+  } else {
+    alert("No body wins!");
   }
 }
 
-playGame()
+playGame();
