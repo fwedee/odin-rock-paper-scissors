@@ -82,12 +82,6 @@ function playRound(getHumanChoice, getComputerChoice) {
 
 // Function which allows the player to play a game of 5 rounds.
 function playGame() {
-  for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    alert(playRound(humanSelection, computerSelection));
-  }
-
   if (humanScore > computerScore) {
     alert("You are the winner!");
   } else if (humanScore < computerScore) {
@@ -97,4 +91,11 @@ function playGame() {
   }
 }
 
-playGame();
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    alert(playRound(humanSelection, computerSelection));
+  });
+});
