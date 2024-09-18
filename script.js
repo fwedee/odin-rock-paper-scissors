@@ -97,12 +97,18 @@ function checkWinner() {
 const buttons = document.querySelectorAll("button");
 const result = document.querySelector(".results");
 const endResults = document.querySelector(".endResults");
+const score = document.querySelector(".score");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const humanSelection = button.innerText;
     const computerSelection = getComputerChoice();
-    result.textContent = playRound(humanSelection, computerSelection);
-    endResults.textContent = checkWinner();
+    let play = playRound(humanSelection, computerSelection);
+    score.textContent = `${humanScore} - ${computerScore}`;
+    result.textContent = play;
+    const checkWin = checkWinner();
+    if (checkWin !== "") {
+      endResults.textContent = checkWin;
+    }
   });
 });
